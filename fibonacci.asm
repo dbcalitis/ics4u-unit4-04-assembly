@@ -21,13 +21,15 @@ section .text
         mov r8, 1                       ; move the integer 0 into r8 (index)
         mov r9, 0                     ; move the integer 9 into r9 (start)
         mov r10, 1                      ; (finish)
-        mov r11, 1                      ; (to print)
+        mov r11, 0                      ; (to print)
 
         IncrementLabel:
             ; doing a do ... while loop!
             inc r8
             push r9
             call PrintSingleDigitInt     ; call our print single digit function
+            
+            ; adding
             add r11, r9
             add r11, r10
 
