@@ -18,10 +18,10 @@ section .text
     global _start                        ; entry point for linker
 
     _start:                              ; start here
-        mov r8, 1                       ; move the integer 0 into r8 (index)
-        mov r9, 0                     ; move the integer 9 into r9 (start)
-        mov r10, 1                      ; (finish)
-        mov r11, 0                      ; (to print)
+        mov r8, 1                        ; move the integer 0 into r8 (index)
+        mov r9, 0                        ; move the integer 9 into r9 n1
+        mov r10, 1                       ; n2
+        mov r11, 0                       ; nth
 
         IncrementLabel:
             ; doing a do ... while loop!
@@ -30,7 +30,7 @@ section .text
             call PrintSingleDigitInt     ; call our print single digit function
             
             ; adding
-            add r11, r9
+            mov r11, r9
             add r11, r10
 
             ; update values
@@ -38,7 +38,7 @@ section .text
             mov r10, r11
         
             add rsp, 4                   ; pop but throw away the value
-            cmp r8, 7-1                  ; compare r8 and ascii 9
+            cmp r8, 8-1                  ; compare r8 and ascii 9
             jle IncrementLabel           ; jump if <= goto "LoopLable"
 
         ; write done to screen
